@@ -33,28 +33,67 @@ It is important to understand that for any base-$N$ the digits represent increas
   \centering
   \begin{pycode}
 from python.bases import draw_base_fancy
-draw_base_fancy('100110', 2, 0, scale=1)
+draw_base_fancy('100110', 2, 0, scale=1, color='red')
 print('\\\\')
 print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
 print('\\\\~\\\\')
-draw_base_fancy('2110211', 3, 0, scale=1)
+draw_base_fancy('2110211', 3, 0, scale=1, color='green')
   \end{pycode}
   \label{fig:nums_in_bases_2_3}
   \caption[Graphical representation of two numbers in bases 2 and 3]{Top: the representation of $\left( 100110 \right)_{2}$. Bottom: the representation of the number $\left( 2110211 \right)_{3}$.}
 \end{figure} 
 
 \subsection{Bases Bigger than 10}
-When our counting base has more than 10 digits (i.e. base-$11$, base-$12$, base-$16$, base-$64$, etc.), we use other symbols to represent the new digits past $9$. Usually those symbols are the Latin alphabet: A, B, C, etc. For example, when counting in base-$16$ (also known as \textit{Hexdecimal}), the following digits are used: $0,1,2,3,4,5,6,7,8,9,A,B,C,D,E$ and $F$, where the digits $0-9$ have the same meaning as in base-$10$, and the letters represent the following values: $A=\left( 10 \right)_{10},\ B=\left( 11 \right)_{10},\ C=\left( 12 \right)_{10},\ D=\left( 13 \right)_{10},\ E=\left( 14 \right)_{10}$ and $F=\left( 15 \right)_{10}$. See Figure \ref{fig:num_base16} for an example. \par
+When our counting base has more than 10 digits (i.e. base-$11$, base-$12$, base-$16$, base-$64$, etc.), we use other symbols to represent the new digits past $9$. Usually those symbols are the Latin alphabet: A, B, C, etc. For example, when counting in base-$16$ (also known as \textit{Hexdecimal}), the following digits are used: $0,1,2,3,4,5,6,7,8,9,A,B,C,D,E$ and $F$, where the digits $0-9$ have the same meaning as in base-$10$, and the letters represent the following values: $A=\left( 10 \right)_{10},\ B=\left( 11 \right)_{10},\ C=\left( 12 \right)_{10},\ D=\left( 13 \right)_{10},\ E=\left( 14 \right)_{10}$ and $F=\left( 15 \right)_{10}$. See Figure \ref{fig:num_base16} for some examples. \par
 
 \begin{figure}
   \centering
   \begin{pycode}
 from python.bases import draw_base_fancy
-draw_base_fancy('1AF3', 16, 0, scale=1.5)
+draw_base_fancy('FF', 16, 0, scale=1, color='cyan')
+print('\\\\')
+print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
+print('\\\\~\\\\')
+draw_base_fancy('1AF3', 16, 0, scale=1, color='cyan')
+print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
+print('\\\\~\\\\')
+draw_base_fancy('1205', 16, 0, scale=1, color='cyan')
   \end{pycode}
   \label{fig:num_base16}
-  \caption[Hex]{Hex!}
+  \caption[Hex numbers]{Three Hexdecimeal numbers converted to decimal. Remeber that $A=10_{10},\ B=11_{10},\ \dots,\ F=15_{10}$.}
 \end{figure} 
+
+In programming languages such as C/C++, Python, Java and countless more, the symbol \textit{0x} before a number symbolizes that the number is in hexdecimal form (i.e. \textit{0xFFA01} is the number $FFA01_{16}$ which equals to $1047041_{10}$). \par
+
+Table  shows the Hexdecimal and binary values for the numbers 0-15 (in base-$10$).
+
+\begin{table}
+    \caption[Hexdecimal and binary values of the numbers 0-15]{Hexdecimal and binary values of the numbers 0-15}
+    \label{tab:dec_hex_bin}
+	\centering
+	\begin{tabular}{ l l l }%
+      Decimal & Hexdecimal & Hexdecimal \\
+      \hline
+	0 & 0 & 0 \\
+    1 & 1 & 1 \\
+    2 & 10 & 2 \\
+    3 & 11 & 3 \\
+    4 & 100 & 4 \\
+    5 & 101 & 5 \\
+    6 & 110 & 6 \\
+    7 & 111 & 7 \\
+    8 & 1000 & 8 \\
+    9 & 1001 & 9 \\
+    10 & 1010 & A \\
+    11 & 1011 & B \\
+    12 & 1100 & C \\
+    13 & 1101 & D \\
+    14 & 1110 & E \\
+    15 & 1111 & F \\
+    \hline
+    \end{tabular}
+\end{table}
 
 
 \section{Converting Between Different Bases}
+While converting between any base and base-$10$ is pretty straight-forward (as seen in the figures above). Converting in the opposite direction is a bit more tricky.

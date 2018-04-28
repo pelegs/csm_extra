@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.10.27)  28 APR 2018 18:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.10.27)  28 APR 2018 23:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1151,12 +1151,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface .
 
-(./pythontex-files-extra/py_default_default_0.stdout)
-Overfull \hbox (15.3919pt too wide) in paragraph at lines 26--22
- [][] 
- []
-
-[1
+(./pythontex-files-extra/py_default_default_0.stdout) [1
 
 
 
@@ -1167,13 +1162,9 @@ Overfull \hbox (15.3919pt too wide) in paragraph at lines 26--22
                                                   \fi \fi 
 l.29 
      ] (./pythontex-files-extra/py_default_default_1.stdout)
-(./pythontex-files-extra/py_default_default_2.stdout)
-Overfull \hbox (15.3919pt too wide) in paragraph at lines 26--56
- [][] 
- []
-
-) [3] [4pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.1.2}) has been already used, duplicate ignored
+(./pythontex-files-extra/py_default_default_2.stdout)) [3] [4pdfTeX warning (ex
+t4): destination with the same identifier (name{figure.1.2}) has been already u
+sed, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -1184,15 +1175,20 @@ l.58     \begin{appendices}
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.58     \begin{appendices}
-                           ] [6
+                           ] [6pdfTeX warning (ext4): destination with the same
+ identifier (name{table.1.1}) has been already used, duplicate ignored
 
-] [7
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.58     \begin{appendices}
+                           ] [7
+
 
 ] [8] (./appendices/temp.tex) [9]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
-
-(./extra.aux (./title.aux))
+ (./extra.aux
+(./title.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
 Package rerunfilecheck Info: File `extra.out' has not changed.
@@ -1204,13 +1200,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
- 24555 strings out of 494350
- 452978 string characters out of 6168763
- 655187 words of memory out of 5000000
- 27582 multiletter control sequences out of 15000+600000
+ 24476 strings out of 494350
+ 451794 string characters out of 6168763
+ 670701 words of memory out of 5000000
+ 27502 multiletter control sequences out of 15000+600000
  10936 words of font info for 39 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 66i,11n,70p,8839b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,11n,70p,8839b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
@@ -1219,10 +1215,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmti12.pfb>
-Output written on extra.pdf (13 pages, 102586 bytes).
+Output written on extra.pdf (13 pages, 105867 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

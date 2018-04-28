@@ -3,14 +3,21 @@ from python.bases import draw_base_fancy
 draw_base_fancy('1337', 10, 0, scale=1.5)
 =>PYTHONTEX#py#default#default#1#code####number_bases.tex#34#
 from python.bases import draw_base_fancy
-draw_base_fancy('100110', 2, 0, scale=1)
+draw_base_fancy('100110', 2, 0, scale=1, color='red')
 print('\\\\')
 print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
 print('\\\\~\\\\')
-draw_base_fancy('2110211', 3, 0, scale=1)
+draw_base_fancy('2110211', 3, 0, scale=1, color='green')
 =>PYTHONTEX#py#default#default#2#code####number_bases.tex#51#
 from python.bases import draw_base_fancy
-draw_base_fancy('1AF3', 16, 0, scale=1.5)
+draw_base_fancy('FF', 16, 0, scale=1, color='cyan')
+print('\\\\')
+print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
+print('\\\\~\\\\')
+draw_base_fancy('1AF3', 16, 0, scale=1, color='cyan')
+print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
+print('\\\\~\\\\')
+draw_base_fancy('1205', 16, 0, scale=1, color='cyan')
 =>PYTHONTEX:SETTINGS#
 version=0.17dev
 outputdir=pythontex-files-extra
