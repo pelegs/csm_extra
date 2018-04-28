@@ -1,0 +1,63 @@
+%        File: extra.tex
+%     Created: Fri Apr 27 21:00  2018 C
+% Last Change: Fri Apr 27 21:00  2018 C
+%
+\documentclass[12pt,
+bibtotoc,liststotoc,appendixprefix
+twoside,paper=a4,headings=small]{scrbook}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+%
+% Packages
+% -----------------------------------
+\usepackage[
+  paper=a4paper,
+  left=12.5mm,
+  right=25mm,
+  top=25mm,
+  bottom=50mm,
+  bindingoffset=10mm]{geometry}		% page and binding margins can be adjusted here
+\usepackage[toc,page]{appendix}
+\usepackage[bottom]{footmisc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{xstring}
+\usepackage{mathtools}
+\usepackage{tabu}
+\usepackage{cancel}
+\usepackage{url}
+\usepackage{pythontex}
+\usepackage{listings}
+\usepackage{float}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, fit}
+
+\newsavebox{\pycodebox}
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+
+
+% Document
+% -----------------------------------
+\begin{document}
+
+\frontmatter 
+    \include{./title}
+    \tableofcontents
+    \clearpage{\pagestyle{empty}\cleardoublepage} 
+
+% -----------------------------------
+\mainmatter
+    \input{./chapters/number_bases}
+
+% -----------------------------------
+    \begin{appendices}
+        \input{./appendices/temp}
+    \end{appendices}
+
+% -----------------------------------
+\end{document}

@@ -1,0 +1,60 @@
+%        File: number_bases.tex
+%     Created: Fri Apr 27 21:00  2018 C
+% Last Change: Fri Apr 27 21:00  2018 C
+%
+
+\chapter{Number Bases}
+\section{Introduction}
+When counting numbers, we normally start with $0$, then go up to $1$, then to $2$, then $3$... when we reach the number $9$ we find ourselves in a small problem: there are no more digits left to count up! We only have ten digits: $0,1,2,3,4,5,6,7,8\ \text{and}\ 9$. What digit are we going to use after $9$? We agree that instead of making up a new digit, we recycle the digits back to $0$, and add a $1$ to left of it to account for that recycling: we end up with $10$. \par
+
+We repeat the process again when reaching $19$: we cycle back to $0$ and mark the extra cycle with an addition to the extra digit $1$, making it a $2$ and ending with $20$. This process repeats for $30$, $40$ and so forth, until we reach $99$. At this point we cycle both $9$s back to $0$ and add a $1$ to the left of those digits to mark a grand-cycle: $100$. \par
+
+This action of cycling all digits back to $0$ and adding a $1$ to the left of our digits repeats each time all our counting reaches a point where all of the digits are $9$s. What we are essentially doing is to mark tens, hundreds, thousands, etc. by adding new digits to the left. For example, the number $37$ has $3$ tens plus a $7$, while the number $91$ has nine tens plus a $1$. In the same fashion, the number $271$ has $2$ hunderds plus $7$ tens plus a $1$ and the number $1337$ has a $1$ thousand plus $3$ hundreds plus $3$ tens plus a $7$ (See Figure \ref{fig:components of 1337}). \par
+In essence, each digit counts how many increasing powers of $10$ our number is made of (since $1,000=10^{3}$, $100=10^{2}$, $10=10^{1}$ and $1=10^{0}$). We can continue this system indefinetly: the next digit to the left will represent $10,000=10^{4}$ then $100,000=10^{5}$, etc. \par
+
+\begin{figure}
+  \centering
+  \begin{pycode}
+from python.bases import draw_base_fancy
+draw_base_fancy('1337', 10, 0, scale=1.5)
+  \end{pycode}
+  \label{fig:components of 1337}
+  \caption[Components of 1,337]{The components of the number 1,337: the digits are separated, each representing an increasing power of $10$ ($1$, $10$, $100$, $1,000$). These values are multiplied by the digit's value (under the arrows). Summing up all the values yields back the number 1,337.}
+\end{figure}
+
+\subsection{Bases Smaller or Equal to 10}
+Since we are using $10$ digits, we call this numbering system \textit{base-10} counting (another common name for a base is the Latin \textit{radix}). Of couere, we can use other bases then base-10: all it means is that the number of digits we use will differ. For example, in base-2 we only have two digits: $0$ and $1$. This means that as in the case of the digit $9$ in base-10, each time we count pass the digit $1$ it will cycle back to $0$ and the next digit will increase: we start with $0$, then $1$ - and then we must cycle back to $0$ and add a new digit, getting $10$. We continue: $11$, then cycling both back to $0$ and adding an new digit, getting $100$. Then come $101$, $110$, $111$, $1000$ and so forth. \par
+
+In the case of base-3, for example, the digits cycle after they reach $2$: $0$, $1$, $2$, $10$, $11$, $12$, $100$, $101$, $102$, etc. Notice that for each base-$N$ (where $N=2,3,4,5,6\dots$) the number $10$ always equals to $N$. In order to be clear as in which base are counting, we sorround the number with round paranthesis and write the base in lower case to the right of the number (although sometimes the parenthesis are not used). For example $\left(143\right)_{5}$ is the number represented by $143$ in base $5$, while $\left(1001\right)_{2}$ is the base-2 representation of the number $1001$. Most often, when not dealing with numbers in any bases other than base-10, we simply omit the base symbol (as in most day to day life). The same applies for when it is clear which base system are we using.
+
+It is important to understand that for any base-$N$ the digits represent increasing powers of $N$. As for base-10, where each digit (starting from the right) represented $10^{0}=1$, $10^{1}=10$, $10^{2}=100$ and so on, the digits for base-$N$ represent the numbers $N^{0}$(=1), $N^{1}$(=N), $N^{2},\ N^{3},\ \dots$ and so forth. Thus for base-$2$ the digits will represent the numbers $2^{0}=1,\ 2^{1}=2,\ 2^{2}=4,\ 2^{3}=8, 2^{4}=16\ \dots$ etc. In the case of base-$3$ the digits will stand for $3^{0}=1,\ 3^{1}=3,\ 3^{2}=9,\ 3^{3}=27,\ \dots$ etc. (See Figure \ref{fig:nums_in_bases_2_3} for a graphical representation)
+
+\begin{figure}
+  \centering
+  \begin{pycode}
+from python.bases import draw_base_fancy
+draw_base_fancy('100110', 2, 0, scale=1)
+print('\\\\')
+print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\end{{tikzpicture}}'.format(1.5))
+print('\\\\~\\\\')
+draw_base_fancy('2110211', 3, 0, scale=1)
+  \end{pycode}
+  \label{fig:nums_in_bases_2_3}
+  \caption[Graphical representation of two numbers in bases 2 and 3]{Top: the representation of $\left( 100110 \right)_{2}$. Bottom: the representation of the number $\left( 2110211 \right)_{3}$.}
+\end{figure} 
+
+\subsection{Bases Bigger than 10}
+When our counting base has more than 10 digits (i.e. base-$11$, base-$12$, base-$16$, base-$64$, etc.), we use other symbols to represent the new digits past $9$. Usually those symbols are the Latin alphabet: A, B, C, etc. For example, when counting in base-$16$ (also known as \textit{Hexdecimal}), the following digits are used: $0,1,2,3,4,5,6,7,8,9,A,B,C,D,E$ and $F$, where the digits $0-9$ have the same meaning as in base-$10$, and the letters represent the following values: $A=\left( 10 \right)_{10},\ B=\left( 11 \right)_{10},\ C=\left( 12 \right)_{10},\ D=\left( 13 \right)_{10},\ E=\left( 14 \right)_{10}$ and $F=\left( 15 \right)_{10}$. See Figure \ref{fig:num_base16} for an example. \par
+
+\begin{figure}
+  \centering
+  \begin{pycode}
+from python.bases import draw_base_fancy
+draw_base_fancy('1AF3', 16, 0, scale=1.5)
+  \end{pycode}
+  \label{fig:num_base16}
+  \caption[Hex]{Hex!}
+\end{figure} 
+
+
+\section{Converting Between Different Bases}
