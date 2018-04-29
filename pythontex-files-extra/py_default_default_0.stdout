@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=0.9]
 \node[] at (3.6666666666666665,.5) {Base-10 Value};
 \node[rotate=270] at (9.5,-3.0) {Base-10 Value};
 \node[fill=blue!35, draw, fit={(0.0,0)(1.5,-1)}, inner sep=0pt, thick] { $1$ };

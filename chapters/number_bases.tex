@@ -5,21 +5,21 @@
 
 \chapter{Number Bases}
 \section{Introduction}
-When counting numbers, we normally start with $0$, then go up to $1$, then to $2$, then $3$... when we reach the number $9$ we find ourselves in a small problem: there are no more digits left to count up! We only have ten digits: $0,1,2,3,4,5,6,7,8\ \text{and}\ 9$. What digit are we going to use after $9$? We agree that instead of making up a new digit, we recycle the digits back to $0$, and add a $1$ to left of it to account for that recycling: we end up with $10$. \par
+When counting numbers, we normally start with $0$, then go up to $1$, then to $2$, then $3$... when we reach the number $9$ we find ourselves in a small problem: there are no more digits left to count up! We only have ten digits: $0,1,2,3,4,5,6,7,8\ \text{and}\ 9$. What digit are we going to use after $9$? We agree that instead of making up a new digit, we cycle the digits back to $0$, and add a $1$ to left of it to account for that recycling: we end up with $10$. \par
 
 We repeat the process again when reaching $19$: we cycle back to $0$ and mark the extra cycle with an addition to the extra digit $1$, making it a $2$ and ending with $20$. This process repeats for $30$, $40$ and so forth, until we reach $99$. At this point we cycle both $9$s back to $0$ and add a $1$ to the left of those digits to mark a grand-cycle: $100$. \par
 
-This action of cycling all digits back to $0$ and adding a $1$ to the left of our digits repeats each time all our counting reaches a point where all of the digits are $9$s. What we are essentially doing is to mark tens, hundreds, thousands, etc. by adding new digits to the left. For example, the number $37$ has $3$ tens plus a $7$, while the number $91$ has nine tens plus a $1$. In the same fashion, the number $271$ has $2$ hunderds plus $7$ tens plus a $1$ and the number $1337$ has a $1$ thousand plus $3$ hundreds plus $3$ tens plus a $7$ (See Figure \ref{fig:components of 1337}). \par
+This action of cycling all digits back to $0$ and adding a $1$ to the left of our digits repeats each time when all of the digits are $9$s. What we are essentially doing is to mark tens, hundreds, thousands, etc. by adding new digits to the left. For example, the number $37$ has $3$ tens plus a $7$, while the number $91$ has nine tens plus a $1$. In the same fashion, the number $271$ has $2$ hunderds plus $7$ tens plus a $1$ and the number $1337$ has a $1$ thousand plus $3$ hundreds plus $3$ tens plus a $7$ (See Figure \ref{fig:components_of_1337}). \par
 In essence, each digit counts how many increasing powers of $10$ our number is made of (since $1,000=10^{3}$, $100=10^{2}$, $10=10^{1}$ and $1=10^{0}$). We can continue this system indefinetly: the next digit to the left will represent $10,000=10^{4}$ then $100,000=10^{5}$, etc. \par
 
 \begin{figure}
   \centering
   \begin{pycode}
 from python.bases import draw_base_fancy
-draw_base_fancy('1337', 10, 0, scale=1.5)
+draw_base_fancy('1337', 10, 0, scale=0.9)
   \end{pycode}
-  \label{fig:components of 1337}
   \caption[Components of 1,337]{The components of the number 1,337: the digits are separated, each representing an increasing power of $10$ ($1$, $10$, $100$, $1,000$). These values are multiplied by the digit's value (under the arrows). Summing up all the values yields back the number 1,337.}
+  \label{fig:components_of_1337}
 \end{figure}
 
 \subsection{Bases Smaller or Equal to 10}
@@ -27,7 +27,7 @@ Since we are using $10$ digits, we call this numbering system \textit{base-10} c
 
 In the case of base-3, for example, the digits cycle after they reach $2$: $0$, $1$, $2$, $10$, $11$, $12$, $100$, $101$, $102$, etc. Notice that for each base-$N$ (where $N=2,3,4,5,6\dots$) the number $10$ always equals to $N$. In order to be clear as in which base are counting, we sorround the number with round paranthesis and write the base in lower case to the right of the number (although sometimes the parenthesis are not used). For example $\left(143\right)_{5}$ is the number represented by $143$ in base $5$, while $\left(1001\right)_{2}$ is the base-2 representation of the number $1001$. Most often, when not dealing with numbers in any bases other than base-10, we simply omit the base symbol (as in most day to day life). The same applies for when it is clear which base system are we using.
 
-It is important to understand that for any base-$N$ the digits represent increasing powers of $N$. As for base-10, where each digit (starting from the right) represented $10^{0}=1$, $10^{1}=10$, $10^{2}=100$ and so on, the digits for base-$N$ represent the numbers $N^{0}$(=1), $N^{1}$(=N), $N^{2},\ N^{3},\ \dots$ and so forth. Thus for base-$2$ the digits will represent the numbers $2^{0}=1,\ 2^{1}=2,\ 2^{2}=4,\ 2^{3}=8, 2^{4}=16\ \dots$ etc. In the case of base-$3$ the digits will stand for $3^{0}=1,\ 3^{1}=3,\ 3^{2}=9,\ 3^{3}=27,\ \dots$ etc. (See Figure \ref{fig:nums_in_bases_2_3} for a graphical representation)
+It is important to understand that for any base-$N$ the digits represent increasing powers of $N$. As for base-10, where each digit (starting from the right) represented $10^{0}=1$, $10^{1}=10$, $10^{2}=100$ and so on, the digits for base-$N$ represent the numbers $N^{0}$(=1), $N^{1}$(=N), $N^{2},\ N^{3},\ \dots$ and so forth. Thus for base-$2$ the digits will represent the numbers $2^{0}=1,\ 2^{1}=2,\ 2^{2}=4,\ 2^{3}=8, 2^{4}=16\ \dots$ etc. In the case of base-$3$ the digits will stand for $3^{0}=1,\ 3^{1}=3,\ 3^{2}=9,\ 3^{3}=27,\ \dots$ etc. (See Figure \ref{fig:nums_in_bases_2_3} for a graphical representation) \par
 
 \begin{figure}
   \centering
@@ -39,8 +39,20 @@ print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\
 print('\\\\~\\\\')
 draw_base_fancy('2110211', 3, 0, scale=1, color='green')
   \end{pycode}
-  \label{fig:nums_in_bases_2_3}
   \caption[Graphical representation of two numbers in bases 2 and 3]{Top: the representation of $\left( 100110 \right)_{2}$. Bottom: the representation of the number $\left( 2110211 \right)_{3}$.}
+  \label{fig:nums_in_bases_2_3}
+\end{figure} 
+
+In any counting base, the left-most digit is the \textit{Most Significant Digit}, since it represents the biggest part of the number: for example, in the number $961$, the digit $9$ represents $900$, which is much bigger than both $60$ and $1$ (the numbers represented by the second and third digits). In the same manner, the right most digit is the \textit{Least Significant Digit} (in the example here it is $1$). See Figure \ref{fig:significant_digits}. Base-$2$ is also named \textit{Binary} while base-$10$ is named \textit{Decimal}. \par
+
+\begin{figure}
+  \centering
+  \begin{pycode}
+from python.bases import draw_base_normal
+draw_base_normal('2503117', 10, 0, scale=1, color='blue')
+  \end{pycode}
+  \caption[]{The number $2503117_{10}$ has $2$ as the Most Significant Digit (representing $2,000,000$) and $7$ as the Least Significant Digit (representing simply $7$).}
+  \label{fig:significant_digits}
 \end{figure} 
 
 \subsection{Bases Bigger than 10}
@@ -59,41 +71,99 @@ print('\\begin{{tikzpicture}}[scale={}] \\draw[dashed, thick](-1,0) to (8,0); \\
 print('\\\\~\\\\')
 draw_base_fancy('1205', 16, 0, scale=1, color='cyan')
   \end{pycode}
-  \label{fig:num_base16}
   \caption[Hex numbers]{Three Hexdecimeal numbers converted to decimal. Remeber that $A=10_{10},\ B=11_{10},\ \dots,\ F=15_{10}$.}
+  \label{fig:num_base16}
 \end{figure} 
 
 In programming languages such as C/C++, Python, Java and countless more, the symbol \textit{0x} before a number symbolizes that the number is in hexdecimal form (i.e. \textit{0xFFA01} is the number $FFA01_{16}$ which equals to $1047041_{10}$). \par
 
-Table  shows the Hexdecimal and binary values for the numbers 0-15 (in base-$10$).
+\section{Converting Between Different Bases}
+While converting between any base and base-$10$ is pretty straight-forward (as seen in the figures above), converting in the opposite direction is a bit more tricky since we normally count in base-$10$. In essence, the procedure of converting a number $x_{10}$ to base-$N$ goes as following:
+\begin{enumerate}
+  \item Divide the number by the base ($N$) to get the remainder $R$. This remainder is the least significant digit of the number in base-$N$.
+  \item Repeat the process by dividing the quotient of step $1$ by $N$. This time, the remainder is the second least significant digit.
+  \item Repeat this process until your quotient becomes $0$. This quotient is the most significant digit.
+\end{enumerate}
 
+For example, let us look at the number $9_{10}$ and convert it to binary according to the given process: first, we divide $9$ by $2$: $\frac{9}{2}=4.5$. This translates to a quotient $4$ with remainder $1$. Next, we divide the quotient $4$ by $2$: $\frac{4}{2}=2$, or quotient $2$ with a remainder $0$. Next, we divide the quotient $2$ by $2$: $\frac{2}{2}=1$, which is a quotient of $1$ with remainder $0$. Goint one more step further, we divide the quotient $1$ by $2$, yieding quotient $0$ with a remainder of $1$. At this stop we stop, and count the remainders backwards: $1001$. Hence, we get $9_{10}=1001_{2}$. See Table \ref{tab:convert_9_bin} for a more graphical representation. \par
+        
 \begin{table}
-    \caption[Hexdecimal and binary values of the numbers 0-15]{Hexdecimal and binary values of the numbers 0-15}
-    \label{tab:dec_hex_bin}
-	\centering
-	\begin{tabular}{ l l l }%
-      Decimal & Hexdecimal & Hexdecimal \\
-      \hline
-	0 & 0 & 0 \\
-    1 & 1 & 1 \\
-    2 & 10 & 2 \\
-    3 & 11 & 3 \\
-    4 & 100 & 4 \\
-    5 & 101 & 5 \\
-    6 & 110 & 6 \\
-    7 & 111 & 7 \\
-    8 & 1000 & 8 \\
-    9 & 1001 & 9 \\
-    10 & 1010 & A \\
-    11 & 1011 & B \\
-    12 & 1100 & C \\
-    13 & 1101 & D \\
-    14 & 1110 & E \\
-    15 & 1111 & F \\
+  \centering
+  \caption{The process for converting $9_{10}$ to binary.}
+  \label{tab:convert_9_bin}
+  \setlength{\extrarowheight}{10pt}
+  \begin{tabular}[]{ l c c c c }
+    Step & Quotient & Devision & New quotient & Remainder \\
     \hline
-    \end{tabular}
+    (1) & $9$ & $\frac{9}{2}=4.5$  & $4$ & $1$ \\
+    (2) & $4$ & $\frac{4}{2}=2  $  & $2$ & $0$ \\
+    (3) & $2$ & $\frac{2}{2}=1  $  & $1$ & $0$ \\
+    (4) & $1$ & $\frac{1}{2}=0.4$  & $0$ & $1$ \\
+    \hline
+  \end{tabular}
 \end{table}
 
+\section{Converting Between Hexdecimal and Binary}
+One big problem with binary (base-$2$) representations is that they are very long. Already we see that in base-$2$, the number $23_{10}$ is represented by 5 digits ($10111$), while the number $121_{10}$ by 7 digits ($1111001$). As binary code is used a lot in computer science and electronics, a base with shorter-length numbers is required, in order to make numbers more human-readable. The usual choice for such a purpose is base-$16$ (Hexdecimal). The reason is that $16=2^{4}$ meaning that each $4$ binary digits can be represented by just one hexdecimal digit. Using Table \ref{tab:bin_hex} for conversion, we see that converting the binary number $1011$ to hexdecimal is straight-forward: $1011_{2}=B_{16}$. \par
 
-\section{Converting Between Different Bases}
-While converting between any base and base-$10$ is pretty straight-forward (as seen in the figures above). Converting in the opposite direction is a bit more tricky.
+Usually, we wish to keep our convertions easy, and thus we write binary representations with a number of \textit{leading zeros} that complete the represntation to a number of digits of our choice. For example, in order to show that binary and hexdecimal digits are easily interchangeable, we write the binary numbers with 4 digits, as in Table \ref{tab:bin_hex}, third column. This way, we can easily convert hexdecimal numbers with more than one digit to binary: for example, the hexdecimal number $F3_{16}$ has the digits $F$ and $3$. If we convert both digits to their binary 4-digit representation, we get $\left( F \right)_{16}=\left( 1111 \right)_{2}$ and $\left( 3 \right)_{16}=\left( 0011 \right)_{2}$, and thus $\left(F3\right)_{16}=\left(1111\ 0011\right)_{2}$ (the space is inserted for readability). See Figure \ref{fig:hex_bin_conv} for an example.
+
+\begin{table}
+  \centering
+  \caption{Hexdecimal to binary convertion}
+  \label{tab:bin_hex}
+  \setlength{\extrarowheight}{10pt}
+  \begin{tabular}[]{ r r l }
+    Hexdecimal & Binary & 4-digit Binary \\
+    \hline
+    0 & 0 & 0000 \\
+    1 & 1 & 0001 \\
+    2 & 10 & 0010 \\
+    3 & 11 & 0011 \\
+    4 & 100 & 0100 \\
+    5 & 101 & 0101 \\
+    6 & 110 & 0110 \\
+    7 & 111 & 0111 \\
+    8 & 1000 & 1000 \\
+    9 & 1001 & 1001 \\
+    A & 1010 & 1010 \\
+    B & 1011 & 1011 \\
+    C & 1100 & 1100 \\
+    D & 1101 & 1101 \\
+    E & 1110 & 1110 \\
+    F & 1111 & 1111 \\
+    \hline
+  \end{tabular}\end{table}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    \begin{scope}[node distance=1.5]
+    
+    \node[draw, thick, inner sep=2.5pt, fill=purple!30](bin_orig) at (0,0) {\Huge$10110011$};
+
+    \node[draw, thick, inner sep=2.5pt, below=of bin_orig.west, anchor=west, xshift=-6pt, fill=blue!20](binL) {\Huge$1011$};
+    \node[draw, thick, inner sep=2.5pt, below=of binL, fill=blue!20](hexL) {\Huge B};
+    \draw[->, thick] (binL) to (hexL);
+    
+    \node[draw, thick, inner sep=2.5pt, below=of bin_orig.east, anchor=east, xshift=6pt, fill=red!20](binR) {\Huge$0011$};
+    \node[draw, thick, inner sep=2.5pt, below=of binR, fill=red!20](hexR) {\huge$3$};
+
+    \draw[->, thick] (bin_orig) to (binL);
+    \draw[->, thick] (bin_orig) to (binR);
+    
+    \node[draw, thick, inner sep=2.5pt, below=of hexL.east, fill=purple!30](hex_conv) {\huge$\text{B}3$};
+    \draw[->, thick] (hexL) to (hex_conv);
+    \draw[->, thick] (hexR) to (hex_conv);
+
+    \node[left=of bin_orig.west, anchor=east, xshift = -5pt] {\Large Binary number:};
+    \node[left=of binL.west, anchor=east, xshift = -5pt] {\Large Separate to 4-digits:};
+    \node[left=of hexL.west, anchor=east, xshift = -5pt] {\Large Convert each to hexdecimal:};
+    \node[left=of hex_conv.west, anchor=east, xshift = -5pt] {\Large Merge digits together:};
+
+    \end{scope}
+    \draw[->, thick] (binR) to (hexR);
+  \end{tikzpicture}
+  \caption{Converting the long binary number $10110011$ to the hexdecimal number $\text{B}3$.}
+  \label{fig:hex_bin_conv}
+\end{figure} 

@@ -30,6 +30,7 @@ twoside,paper=a4,headings=small]{scrbook}
 \usepackage{pythontex}
 \usepackage{listings}
 \usepackage{float}
+\usepackage{array}
 
 \usepackage{tikz}
 \usetikzlibrary{calc, positioning, fit}
@@ -37,9 +38,11 @@ twoside,paper=a4,headings=small]{scrbook}
 \newsavebox{\pycodebox}
 
 \pagestyle{fancy}
-\lhead{}
-\rhead{}
-
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{
+}}
 
 % Document
 % -----------------------------------
